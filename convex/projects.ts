@@ -34,4 +34,4 @@ export const get = query({
       .withIndex("by_owner", (q) => q.eq("ownerId", identity.subject))
       .collect();
   },
-})
+});
