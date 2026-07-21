@@ -2,8 +2,7 @@ import { generateText, Output } from "ai";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { mistral } from '@ai-sdk/mistral';
-// import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
 
 
 const suggestionSchema = z.object({
@@ -84,7 +83,7 @@ export async function POST(request: Request) {
       .replace("{lineNumber}", lineNumber.toString());
 
     const { output } = await generateText({
-      model: mistral("mistral-medium-3.5"),
+      model: openai("gpt-5"),
       output: Output.object({ schema: suggestionSchema }),
       prompt,
     });

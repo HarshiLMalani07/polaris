@@ -4,8 +4,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 
 import { firecrawl } from "@/lib/firecrawl";
-import { mistral } from "@ai-sdk/mistral";
-// import { anthropic } from "@ai-sdk/anthropic";
+import { openai } from "@ai-sdk/openai";
 
 const quickEditSchema = z.object({
   editedCode: z
@@ -103,7 +102,7 @@ export async function POST(request: Request) {
       .replace("{documentation}", documentationContext);
 
     const { output } = await generateText({
-      model: mistral("mistral-large-latest"),
+      model: openai("gpt-5"),
       output: Output.object({ schema: quickEditSchema }),
       prompt,
     });

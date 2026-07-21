@@ -1,8 +1,7 @@
 import { generateText } from "ai";
 import { inngest } from "./client";
 import { firecrawl } from "@/lib/firecrawl";
-import { mistral } from "@ai-sdk/mistral";
-// import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
 
 const URL_REGEX = /https?:\/\/[^\s]+/g;
 
@@ -34,7 +33,7 @@ export const demoGenerate = inngest.createFunction(
 
     await step.run("generate-text", async () => {
       return await generateText({
-        model: mistral('mistral-large-latest'),
+        model: openai("gpt-5"),
         prompt: finalPrompt,
         experimental_telemetry:{
           isEnabled: true,
