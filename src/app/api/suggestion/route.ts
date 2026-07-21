@@ -83,7 +83,7 @@ export async function POST(request: Request) {
       .replace("{lineNumber}", lineNumber.toString());
 
     const { output } = await generateText({
-      model: openai("gpt-5"),
+      model: openai("gpt-4.1-2025-04-14"),
       output: Output.object({ schema: suggestionSchema }),
       prompt,
     });

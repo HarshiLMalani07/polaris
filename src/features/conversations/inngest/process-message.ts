@@ -1,4 +1,4 @@
-import { createAgent, createNetwork, gemini } from '@inngest/agent-kit';
+import { createAgent, createNetwork, openai } from '@inngest/agent-kit';
 import { inngest } from "@/inngest/client";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { NonRetriableError } from "inngest";
@@ -117,13 +117,11 @@ export const processMessage = inngest.createFunction(
        const titleAgent = createAgent({
         name: "title-generator",
         system: TITLE_GENERATOR_SYSTEM_PROMPT,
-        model: gemini({
-          model: "gemini-2.0-flash-lite",
+        model: openai({
+          model: "gpt-4o-mini",
           defaultParameters: {
-            generationConfig: {
-              temperature: 0,
-              maxOutputTokens: 50,
-            },
+            temperature: 0,
+            max_completion_tokens: 50,
           },
         }),
        });
@@ -160,13 +158,10 @@ export const processMessage = inngest.createFunction(
       name: "polaris",
       description: "An expert AI coding assistant", 
       system: systemPrompt,
-       model: gemini({
-        model: "gemini-2.0-flash-lite",
+       model: openai({
+        model: "gpt-4.1",
         defaultParameters: {
-          generationConfig: {
-            temperature: 0.3,
-            maxOutputTokens: 16000,
-          },
+          temperature: 0.3,
         },
        }),
        tools: [
