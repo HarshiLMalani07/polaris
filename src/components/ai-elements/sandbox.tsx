@@ -16,7 +16,7 @@ import type { ToolUIPart } from "ai";
 import { ChevronDownIcon, Code } from "lucide-react";
 import type { ComponentProps } from "react";
 
-import { getStatusBadge } from "./tool";
+// import { getStatusBadge } from "./tool";
 
 export type SandboxRootProps = ComponentProps<typeof Collapsible>;
 
@@ -52,8 +52,8 @@ export const SandboxHeader = ({
   >
     <div className="flex items-center gap-2">
       <Code className="size-4 text-muted-foreground" />
-      <span className="font-medium text-sm">{title}</span>
-      {getStatusBadge(state)}
+      {/* <span className="font-medium text-sm">{title}</span>
+      {getStatusBadge(state)} */}
     </div>
     <ChevronDownIcon className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
   </CollapsibleTrigger>
