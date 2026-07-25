@@ -15,7 +15,7 @@
 
   <br /><br />
 
-  <img src="./public/images/code-editor-view.png" alt="Polaris IDE" width="100%" style="border-radius:12px" />
+  <img src="./public/images/home-page.png" alt="Polaris" width="100%" style="border-radius:12px" />
 </div>
 
 ---
@@ -46,11 +46,13 @@ Describe the app you want and Polaris scaffolds it, or paste a GitHub URL and br
 
 A real editor on the left, an AI agent on the right. The agent has actual tools: it lists, reads, creates, updates, renames, and deletes files in your project, and can scrape a URL when it needs docs it doesn't have.
 
-Inside the editor you also get **inline ghost-text completions** and **quick edit** — select a block, describe the change, watch it rewrite in place.
-
 Chats open as **tabs**, so you can keep several threads going and switch between them like files. Nothing is ever lost — the full history is one click away.
 
 <img src="./public/images/code-editor-view.png" alt="Code editor with AI chat" width="100%" />
+
+You don't have to ask, either. **Ghost-text completions** appear as you type, and **quick edit** lets you select a block, describe the change, and watch it rewrite in place.
+
+<img src="./public/images/ai-in-editor.png" alt="Inline ghost-text completion in the editor" width="100%" />
 
 ---
 

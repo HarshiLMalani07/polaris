@@ -34,15 +34,13 @@ export const SHOWCASE_SLIDES: ShowcaseSlide[] = [
     sub: "It reads, writes, renames and deletes actual files — then tells you exactly what it changed.",
     crumb: "polaris / quiet-lunar-otter",
   },
-  // TODO: drop `ai-in-editor.png` into public/images, uncomment this slide, and
-  // point the "In-Editor AI" pill below at `inline-ai` instead of `agent`.
-  // {
-  //   id: "inline-ai",
-  //   src: "/images/ai-in-editor.png",
-  //   label: "AI inside the editor",
-  //   sub: "Ghost-text as you type. Select a block, describe the change, watch it rewrite in place.",
-  //   crumb: "polaris / app/page.tsx",
-  // },
+  {
+    id: "inline-ai",
+    src: "/images/ai-in-editor.png",
+    label: "AI inside the editor",
+    sub: "Ghost-text as you type. Select a block, describe the change, watch it rewrite in place.",
+    crumb: "polaris / src/app/api/messages/route.ts",
+  },
   {
     id: "preview",
     src: "/images/preview-mode.png",
@@ -75,7 +73,7 @@ export type ShowcasePill = {
 
 export const SHOWCASE_PILLS: ShowcasePill[] = [
   { icon: BotIcon, label: "AI Agent", slideId: "agent" },
-  { icon: WandSparklesIcon, label: "In-Editor AI", slideId: "agent" },
+  { icon: WandSparklesIcon, label: "In-Editor AI", slideId: "inline-ai" },
   { icon: MonitorPlayIcon, label: "Live Preview", slideId: "preview" },
   { icon: GitBranchIcon, label: "GitHub Sync", slideId: "ship" },
 ];
