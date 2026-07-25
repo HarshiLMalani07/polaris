@@ -21,6 +21,30 @@ export const create = mutation({
       throw new Error("Unauthorized to access this project");
     }
 
+    // Reuse the most recent untouched conversation instead of stacking duplicates
+    const existing = await ctx.db
+      .query("conversations")
+      .withIndex("by_project", (q) => q.eq("projectId", args.projectId))
+      .order("desc")
+      .collect();
+
+    for (const conversation of existing) {
+      if (conversation.title !== args.title) {
+        continue;
+      }
+
+      const firstMessage = await ctx.db
+        .query("messages")
+        .withIndex("by_conversation", (q) =>
+          q.eq("conversationId", conversation._id)
+        )
+        .first();
+
+      if (!firstMessage) {
+        return conversation._id;
+      }
+    }
+
     const conversationId = await ctx.db.insert("conversations", {
       projectId: args.projectId,
       title: args.title,
