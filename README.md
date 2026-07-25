@@ -32,33 +32,29 @@ Nothing to install. Nothing to configure. Just you and the next line.
 
 ## A Quick Tour
 
-### 1. Land on your launcher
+### 1. Start from a prompt — or from an existing repo
 
-Every project you've touched, one keystroke away. `⌘J` to start something new, `⌘I` to pull in a repo, `⌘K` to jump to any project.
+Describe the app you want and Polaris scaffolds it, or paste a GitHub URL and bring an existing codebase in as-is. `⌘J` to start something new, `⌘I` to import, `⌘K` to jump to any project you've touched.
 
-<img src="./public/images/home-page.png" alt="Polaris launcher" width="100%" />
+<img src="./public/images/new-project-dialog.png" alt="Describe what to build" width="100%" />
 
----
-
-### 2. Start from a prompt — or from an existing repo
-
-Describe the app you want and Polaris scaffolds it, or paste a GitHub URL and bring an existing codebase in as-is.
-
-<img src="./public/images/new-project-dialog.png" alt="New project dialog" width="48%" /> &nbsp; <img src="./public/images/import-from-github-dialog.png" alt="Import from GitHub" width="48%" />
+<img src="./public/images/import-from-github-dialog.png" alt="Import from GitHub" width="100%" />
 
 ---
 
-### 3. Write code — or ask the agent to
+### 2. Write code — or ask the agent to
 
 A real editor on the left, an AI agent on the right. The agent has actual tools: it lists, reads, creates, updates, renames, and deletes files in your project, and can scrape a URL when it needs docs it doesn't have.
 
 Inside the editor you also get **inline ghost-text completions** and **quick edit** — select a block, describe the change, watch it rewrite in place.
 
+Chats open as **tabs**, so you can keep several threads going and switch between them like files. Nothing is ever lost — the full history is one click away.
+
 <img src="./public/images/code-editor-view.png" alt="Code editor with AI chat" width="100%" />
 
 ---
 
-### 4. Run it — live, in the browser
+### 3. Run it — live, in the browser
 
 Flip to Preview. Polaris installs your dependencies and boots the dev server inside a WebContainer, with a full terminal attached. Your app runs in the same tab you wrote it in.
 
@@ -66,19 +62,15 @@ Flip to Preview. Polaris installs your dependencies and boots the dev server ins
 
 ---
 
-### 5. Keep every conversation
-
-Chats are saved per project and open as **tabs**, so you can keep several threads going and switch between them like files. Search the full history from the chat header.
-
-<img src="./public/images/chat-tabs.png" alt="Chat tabs and history" width="100%" />
-
----
-
-### 6. Ship it
+### 4. Ship it
 
 Export any project straight to a new GitHub repo — public or private, description included.
 
-<img src="./public/images/export-to-github-dialog.png" alt="Export to GitHub" width="48%" /> &nbsp; <img src="./public/images/billing.png" alt="Plans and billing" width="48%" />
+<img src="./public/images/export-to-github-dialog.png" alt="Export to GitHub" width="100%" />
+
+Plans and payment are handled by Clerk, right inside the app.
+
+<img src="./public/images/billing.png" alt="Plans and billing" width="100%" />
 
 ---
 
