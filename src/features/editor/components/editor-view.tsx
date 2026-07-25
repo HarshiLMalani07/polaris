@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useFile, useUpdateFile } from "@/features/projects/hooks/use-files";
 
@@ -7,6 +7,7 @@ import { CodeEditor } from "./code-editor";
 import { useEditor } from "../hooks/use-editor";
 import { TopNavigation } from "./top-navigation";
 import { FileBreadcrumbs } from "./file-breadcrumbs";
+import { EMPTY_EDITOR_TAGLINES } from "../constants";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { AlertTriangleIcon } from "lucide-react";
 
@@ -17,6 +18,13 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
   const activeFile = useFile(activeTabId);
   const updateFile = useUpdateFile();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  // Picked once per mount, so it changes as you move between projects
+  const [tagline] = useState(
+    () =>
+      EMPTY_EDITOR_TAGLINES[
+        Math.floor(Math.random() * EMPTY_EDITOR_TAGLINES.length)
+      ]
+  );
 
   const isActiveFileBinary = activeFile && activeFile.storageId;
   const isActiveFileText = activeFile && !activeFile.storageId;
@@ -38,7 +46,7 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
       {activeTabId && <FileBreadcrumbs projectId={projectId} />}
       <div className="flex-1 min-h-0 bg-background">
         {!activeFile && (
-          <div className="size-full flex items-center justify-center">
+          <div className="size-full flex flex-col items-center justify-center gap-4">
             <Image
               src="/logo-alt.svg"
               alt="Polaris"
@@ -46,6 +54,12 @@ export const EditorView = ({ projectId }: { projectId: Id<"projects"> }) => {
               height={50}
               className="opacity-25"
             />
+            <p
+              suppressHydrationWarning
+              className="text-base font-semibold text-muted-foreground/70 text-center px-6 animate-in fade-in duration-700"
+            >
+              {tagline}
+            </p>
           </div>
         )}
         {isActiveFileText && (
